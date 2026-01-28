@@ -1,3 +1,13 @@
+msttcorefonts (3.8.1+deb12u1~mint1) noble; urgency=medium
+
+  * Rebuild Debian msttcorefonts packaging for Ubuntu/Mint without
+    Ubuntu-specific dependency additions.
+  * No functional changes; installer behavior and debconf prompts
+    are identical to Debian.
+  * Dependency set intentionally matches Debian policy.
+
+ -- EvilSupahFly <seann.giffin@gmail.com>  Wed, 28 Jan 2026 14:32:32 -0500
+
 msttcorefonts (3.8.1) unstable; urgency=medium
 
   * Correct directory name for READ_ME!.gz (closes: #996010).
@@ -603,4 +613,3 @@ msttcorefonts (0.1.0) unstable; urgency=low
   * Initial Release; installer for MS TrueType core fonts for the Web
 
  -- Eric Sharkey <sharkey@superk.physics.sunysb.edu>  Sun, 17 Sep 2000 13:34:12 -0400
-
