@@ -53,3 +53,11 @@ Your PPA version should appear as the candidate with the highest priority.
 
 * Packaging and installer scripts: **GNU GPL v2**
 * Microsoft fonts are **downloaded at install time under Microsoft’s EULA** — see `/usr/share/doc/ttf-mscorefonts-installer/READ_ME!.gz` after installation.
+
+---
+
+## Notes
+
+* This PPA only modifies the **dependencies**; the fonts themselves are unchanged.
+* Safe for Linux Mint and Ubuntu systems.
+* Fully compatible with existing font configurations.
