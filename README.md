@@ -53,25 +53,3 @@ Your PPA version should appear as the candidate with the highest priority.
 
 * Packaging and installer scripts: **GNU GPL v2**
 * Microsoft fonts are **downloaded at install time under Microsoft’s EULA** — see `/usr/share/doc/ttf-mscorefonts-installer/READ_ME!.gz` after installation.
-
----
-
-## Updating
-
-When Debian upstream updates `msttcorefonts`:
-
-1. Pull the latest Debian source
-2. Update `debian/changelog` with a new `~mintN` entry
-3. Rebuild and sign
-4. Upload to this PPA via `dput`
-
-*(See the included `RELEASE_CHECKLIST.md` for the full workflow.)*
-
----
-
-## Notes
-
-* This PPA only modifies the **dependencies**; the fonts themselves are unchanged.
-* Safe for Linux Mint and Ubuntu systems.
-* Fully compatible with existing font configurations.
-
