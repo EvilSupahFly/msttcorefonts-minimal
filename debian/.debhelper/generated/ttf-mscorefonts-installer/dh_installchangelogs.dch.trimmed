@@ -1,0 +1,49 @@
+msttcorefonts (3.8.1+deb12u1~mint1) noble; urgency=medium
+
+  * Rebuild Debian msttcorefonts packaging for Ubuntu/Mint without
+    Ubuntu-specific dependency additions.
+  * No functional changes; installer behavior and debconf prompts
+    are identical to Debian.
+  * Dependency set intentionally matches Debian policy.
+
+ -- EvilSupahFly <seann.giffin@gmail.com>  Wed, 28 Jan 2026 14:32:32 -0500
+
+msttcorefonts (3.8.1) unstable; urgency=medium
+
+  * Correct directory name for READ_ME!.gz (closes: #996010).
+  * Convert remaining debconf translations to UTF-8.
+  * Checked for policy 4.6.2, no changes required.
+
+ -- Thijs Kinkhorst <thijs@debian.org>  Wed, 04 Jan 2023 14:13:01 +0000
+
+msttcorefonts (3.8) unstable; urgency=medium
+
+  [ Thijs Kinkhorst ]
+  * Update download URLs to use https. Depend on ca-certificates
+    to make this work out of the box.
+    (Closes: #910483, #912956, #958781)
+  * Update font cache and restore SELinux context after installing
+    the fonts (thanks Laurent Bigonville, Closes: #820627, #899373).
+  * Checked for policy 4.5.0, no changes required.
+
+  [ Ondřej Nový ]
+  * changelog: Remove trailing whitespaces
+
+ -- Thijs Kinkhorst <thijs@debian.org>  Sun, 26 Apr 2020 12:13:08 +0000
+
+msttcorefonts (3.7) unstable; urgency=medium
+
+  * Print message that fonts are moved upon package removal
+    (closes: #737630).
+  * Remove any leftover defoma handling, since defoma has been
+    removed in 2011.
+  * Update to dh(1) sequencer, debhelper 11 and policy 4.1.3.
+  * Switch to source format 3.0 (native).
+  * Take some changes from Ubuntu diff. (Most of it we cannot
+    use since it depends on update-notifier, which is not
+    necessarily available in Debian.)
+
+ -- Thijs Kinkhorst <thijs@debian.org>  Thu, 11 Jan 2018 11:28:55 +0000
+
+# Older entries have been removed from this changelog.
+# To read the complete changelog use `apt changelog ttf-mscorefonts-installer`.

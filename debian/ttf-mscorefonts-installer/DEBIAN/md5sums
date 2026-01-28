@@ -1,0 +1,5 @@
+9b8f129baa0383a0a4fcc5b82bf034fb  usr/share/doc/ttf-mscorefonts-installer/README.Debian
+efe60f9c17abae91202941c685652847  usr/share/doc/ttf-mscorefonts-installer/changelog.gz
+e54a234d34eefe4ea222eeec540697ee  usr/share/doc/ttf-mscorefonts-installer/copyright
+8fb25aeb5ece43700bd85680186f113e  usr/share/lintian/overrides/ttf-mscorefonts-installer
+248df80866983e2c18e0e40d4565323b  var/lib/msttcorefonts/cabfiles.sha256sums

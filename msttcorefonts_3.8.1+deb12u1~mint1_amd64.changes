@@ -1,0 +1,57 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 28 Jan 2026 14:32:32 -0500
+Source: msttcorefonts
+Binary: ttf-mscorefonts-installer
+Built-For-Profiles: noudeb
+Architecture: source all
+Version: 3.8.1+deb12u1~mint1
+Distribution: noble
+Urgency: medium
+Maintainer: Thijs Kinkhorst <thijs@debian.org>
+Changed-By: EvilSupahFly <seann.giffin@gmail.com>
+Description:
+ ttf-mscorefonts-installer - Installer for Microsoft TrueType core fonts
+Changes:
+ msttcorefonts (3.8.1+deb12u1~mint1) noble; urgency=medium
+ .
+   * Rebuild Debian msttcorefonts packaging for Ubuntu/Mint without
+     Ubuntu-specific dependency additions.
+   * No functional changes; installer behavior and debconf prompts
+     are identical to Debian.
+   * Dependency set intentionally matches Debian policy.
+Checksums-Sha1:
+ 563b29c1a02916347e4352c2c41c4a7b2cb03573 1664 msttcorefonts_3.8.1+deb12u1~mint1.dsc
+ 30dbc6de04ab1c5526fa2ddf7400ba064e9082ac 39288 msttcorefonts_3.8.1+deb12u1~mint1.tar.xz
+ 3cf69c3eb5a2353c2437f31ed5ffad62753f62ce 9586 msttcorefonts_3.8.1+deb12u1~mint1_amd64.buildinfo
+ 965c8d5c61411d91e9ff570be838986f37daddd9 25722 ttf-mscorefonts-installer_3.8.1+deb12u1~mint1_all.deb
+Checksums-Sha256:
+ 0df048e0200f9d3226c574e9b084b352ad6386b51ba1549c901bd6bd7df470b8 1664 msttcorefonts_3.8.1+deb12u1~mint1.dsc
+ 7d5f09aaad8f4e6e110df22683069adf4924a2897955414b7ad7b61c0b0ee817 39288 msttcorefonts_3.8.1+deb12u1~mint1.tar.xz
+ de0e4bd1d44813305eba042386e672a70e9f67ead059ad6d7794480280d1c234 9586 msttcorefonts_3.8.1+deb12u1~mint1_amd64.buildinfo
+ 970c3725bb7fba2014fa3aa770e2d5def803726c89e93a9de88607f7c2f9b335 25722 ttf-mscorefonts-installer_3.8.1+deb12u1~mint1_all.deb
+Files:
+ fdcb5d58e48696e4e081c167a4e47272 1664 contrib/fonts optional msttcorefonts_3.8.1+deb12u1~mint1.dsc
+ 033535a1200aa40f9c55df23ace9863e 39288 contrib/fonts optional msttcorefonts_3.8.1+deb12u1~mint1.tar.xz
+ d560e3dfc4919959c802c61a6b1dea30 9586 contrib/fonts optional msttcorefonts_3.8.1+deb12u1~mint1_amd64.buildinfo
+ 2a6497f05ad7c018265076e3ee594360 25722 contrib/fonts optional ttf-mscorefonts-installer_3.8.1+deb12u1~mint1_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJLBAEBCgA1FiEEw54nmCU9JLizAy42V3n+N4A87X0FAml6fywXHHNlYW5uLmdp
+ZmZpbkBnbWFpbC5jb20ACgkQV3n+N4A87X2HGg//WibOoVW0m7GKKdbPuey00Xsv
+97vUERcuq6Sxvrbbcxmc6knls4c71zvpAJscniRtG9QHu5WubSWI5PbzJ+SxyiRo
+zsnzL9QjyaETgp4eS1Tm1ZZ7ICIsWYTSUUiN0oagODbuJSJorrKNL34vAH3yfFVI
+EvWYP56HU+kB/UXuC0J+R4Q5ZB318k5zBQAvOGt03Ohk7AddTuPc4/7zD0iK9rZU
+R1kfLnKGrPF1qmLaIHj4GCxES9Au909IkKsj39v4c07o/hvt7poyQZOwh6sIv6/8
+n7apbNGEcZSyWciiQZx6LoxPry6uWYI/EClV134KKB5lYiGbQQR8hbU/WHd80XRv
+iPOOJ4jsAiKU5CxfeC1hItaQuH4dvNqNfwFAPywho0oH+qj5IUT/ZxiMIA1/eNJ9
+fqJoiiyt8Nbw+DawqFzKUaxvl+E7qywbTxZrwSD6Gk48lV8cGzBMLJg4/VL5ZCzE
+1GiQp4gzc9wk5GpU9iIdVQHX2QpL6oIuV01V5Xb+2K0B4sWMY6InPcGEkw9nekgq
+4RP5djE1jx+Z1GvBzMeuxewcIbKz41E2dVUNyjHKiQnczJ9LH4I5d/k789DOoNid
+msv2Mi006I0UIn+pUgd5Cv08YI5ZHU5KIlnDLObgGYT9doA4u4oHFBYqFvtRYW7L
+jTLA4/NoGldA77uF2kg=
+=HUGV
+-----END PGP SIGNATURE-----
