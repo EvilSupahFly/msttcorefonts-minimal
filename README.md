@@ -14,16 +14,42 @@ This PPA provides a **lightweight version of `ttf-mscorefonts-installer`** that 
 
 ## How to use
 
-### Add the PPA
+### Adding this PPA to your system
+You can update your system with unsupported packages from this untrusted PPA by adding `ppa:seann-giffin/msttcorefonts-minimal` to your system's Software Sources. ([Read about installing](https://launchpad.net/+help-soyuz/ppa-sources-list.html))
 
 ```bash
 sudo add-apt-repository ppa:seann-giffin/msttcorefonts-minimal
 sudo apt update
 ```
+        
 
-### Pin the package (optional but recommended)
+For maximum compatibility, this project supports the following base Ubuntu versions and any derivatives (like Linux Mint) based on them:
+ * bionic (18.04)
+ * focal (20.04)
+ * jammy (22.04)
+ * noble (24.04)
+ * questing (25.10)
+ * resolute (26.04)
+ 
+ 
+As such, this PPA can also be added to your system manually by copying the lines below and adding them to your system's software sources:
 
-This ensures your system always prefers the minimal version:
+```text
+deb https://ppa.launchpadcontent.net/seann-giffin/msttcorefonts-minimal/ubuntu YOUR_UBUNTU_VERSION_NAME_HERE main 
+deb-src https://ppa.launchpadcontent.net/seann-giffin/msttcorefonts-minimal/ubuntu YOUR_UBUNTU_VERSION_NAME_HERE main
+```
+
+
+Signing key:
+4096R/F1A0FE71AA98ACF3290D2FDA1111EE89C2D53117 ([What is this?](https://launchpad.net/+help-soyuz/ppa-sources-list.html))
+
+Fingerprint:
+F1A0FE71AA98ACF3290D2FDA1111EE89C2D53117
+
+
+### Pinning the package (optional but recommended)
+
+This ensures your system always prefers this `minimal` version:
 
 1. Create `/etc/apt/preferences.d/msttcorefonts` with:
 
