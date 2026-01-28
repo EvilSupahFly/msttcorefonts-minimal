@@ -1,6 +1,6 @@
 Package: ttf-mscorefonts-installer
 Source: msttcorefonts
-Version: 3.8.1+deb12u1~mint1
+Version: 3.8.1+deb12u1~mint2
 Architecture: all
 Maintainer: Thijs Kinkhorst <thijs@debian.org>
 Installed-Size: 85

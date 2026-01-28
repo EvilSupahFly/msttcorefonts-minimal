@@ -1,3 +1,13 @@
+msttcorefonts (3.8.1+deb12u1~mint2) noble; urgency=medium
+
+  * Rebuild Debian msttcorefonts packaging for Ubuntu/Mint without
+    Ubuntu-specific dependency additions.
+  * No functional changes; installer behavior and debconf prompts
+    are identical to Debian.
+  * Dependency set intentionally matches Debian policy.
+
+ -- EvilSupahFly <seann.giffin@gmail.com>  Wed, 28 Jan 2026 14:32:32 -0500
+
 msttcorefonts (3.8.1+deb12u1~mint1) noble; urgency=medium
 
   * Rebuild Debian msttcorefonts packaging for Ubuntu/Mint without
