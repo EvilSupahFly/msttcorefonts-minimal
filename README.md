@@ -1,89 +1,164 @@
-**Minimal installer for Microsoft TrueType fonts on Linux Mint / Ubuntu**
+# msttcorefonts-minimal PPA
 
-This PPA provides a **lightweight version of `ttf-mscorefonts-installer`** that matches Debian’s upstream dependency policy. It avoids extra Ubuntu/Mint meta-packages that are **not required** for the fonts to install.
+This PPA provides a **minimal, Debian-derived build** of `ttf-mscorefonts-installer` (source package: `msttcorefonts`) for Ubuntu and Linux Mint.
+
+## Why this PPA exists
+
+On Ubuntu (and therefore Linux Mint), the stock `ttf-mscorefonts-installer` package pulls in a large set of **unrelated system-management dependencies**, including:
+
+* `update-manager`
+* `ubuntu-release-upgrader`
+* `ubuntu-advantage-tools`
+* Python helpers used only by Ubuntu's update stack
+
+None of these are required to:
+
+* download the Microsoft core fonts
+* install them
+* use them at runtime
+
+Debian's upstream package correctly depends only on what is actually needed (`cabextract`, `wget`, `dpkg`).
+
+This PPA simply:
+
+* tracks the **Debian `msttcorefonts` package**
+* rebuilds it for Ubuntu releases
+* **does not add Ubuntu's extra meta-dependencies**
+
+No functionality is removed.
+Only unnecessary dependencies are avoided.
 
 ---
 
-## Why this exists
+## Supported releases
 
-* Ubuntu’s `ttf-mscorefonts-installer` depends on 8+ extra packages (update-manager, python3-distupgrade, ubuntu-advantage-tools, etc.)
-* Debian’s upstream package only requires `wget`, `cabextract`, and `dpkg`
-* This PPA rebuilds the Debian package **without unnecessary Ubuntu dependencies**, making installation cleaner and easier to maintain.
+This PPA publishes builds for the following Ubuntu series:
+
+* 18.04 (bionic)
+* 20.04 (focal)
+* 22.04 (jammy)
+* 24.04 (noble)
+* newer series as available
+
+Linux Mint users are supported **via Mint's Ubuntu base**.
 
 ---
 
-## How to use
+## Installation (Linux Mint & Ubuntu)
 
-### Adding this PPA to your system
-You can update your system with unsupported packages from this untrusted PPA by adding `ppa:seann-giffin/msttcorefonts-minimal` to your system's Software Sources. ([Read about installing](https://launchpad.net/+help-soyuz/ppa-sources-list.html))
+> **Important (Mint users):**
+> Do **not** use `add-apt-repository`.
+> It uses Mint codenames and legacy key handling, which will break this PPA.
+
+### 1. Import the PPA signing key (modern keyring method)
 
 ```bash
-sudo add-apt-repository ppa:seann-giffin/msttcorefonts-minimal
-sudo apt update
-```
-        
+sudo mkdir -p /etc/apt/keyrings
 
-For maximum compatibility, this project supports the following base Ubuntu versions and any derivatives (like Linux Mint) based on them:
- * bionic (18.04)
- * focal (20.04)
- * jammy (22.04)
- * noble (24.04)
- * questing (25.10)
- * resolute (26.04)
- 
- 
-As such, this PPA can also be added to your system manually by copying the lines below and adding them to your system's software sources:
+curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF1A0FE71AA98ACF3290D2FDA1111EE89C2D53117" \
+| sudo gpg --dearmor -o /etc/apt/keyrings/msttcorefonts-minimal.gpg
 
-```text
-deb https://ppa.launchpadcontent.net/seann-giffin/msttcorefonts-minimal/ubuntu YOUR_UBUNTU_VERSION_NAME_HERE main 
-deb-src https://ppa.launchpadcontent.net/seann-giffin/msttcorefonts-minimal/ubuntu YOUR_UBUNTU_VERSION_NAME_HERE main
+sudo chmod 644 /etc/apt/keyrings/msttcorefonts-minimal.gpg
 ```
 
+---
 
-Signing key:
-4096R/F1A0FE71AA98ACF3290D2FDA1111EE89C2D53117 ([What is this?](https://launchpad.net/+help-soyuz/ppa-sources-list.html))
+### 2. Add the repository (Mint-safe)
 
-Fingerprint:
-F1A0FE71AA98ACF3290D2FDA1111EE89C2D53117
-
-
-### Pinning the package (optional but recommended)
-
-This ensures your system always prefers this `minimal` version:
-
-1. Create `/etc/apt/preferences.d/msttcorefonts` with:
-
-```text
-Package: ttf-mscorefonts-installer
-Pin: release o=LP-PPA-seann-giffin-msttcorefonts-minimal
-Pin-Priority: 1001
+```bash
+echo "deb [signed-by=/etc/apt/keyrings/msttcorefonts-minimal.gpg] \
+https://ppa.launchpadcontent.net/seann-giffin/msttcorefonts-minimal/ubuntu \
+$(. /etc/os-release && echo $UBUNTU_CODENAME) main" \
+| sudo tee /etc/apt/sources.list.d/msttcorefonts-minimal.list
 ```
 
-2. Update APT:
+This uses the **Ubuntu base codename**, not the Mint codename, as this PPA follows Ubuntu's release naming scheme.
+
+---
+
+### 3. Update and install
 
 ```bash
 sudo apt update
+sudo apt install ttf-mscorefonts-installer
 ```
 
-3. Verify:
+> The `msttcorefonts` name is provided as a virtual package; installing either name will correctly resolve to `ttf-mscorefonts-installer`.
+
+---
+
+## Verifying that the minimal package is in use
+
+You can confirm that APT is selecting the PPA version:
 
 ```bash
 apt-cache policy ttf-mscorefonts-installer
 ```
 
-Your PPA version should appear as the candidate with the highest priority.
+The installed and candidate versions should come from:
+
+```
+ppa.launchpadcontent.net/seann-giffin/msttcorefonts-minimal
+```
+
+### Package Installation Note
+> This PPA installs the `msttcorefonts` package directly (as produced upstream by Debian) and nothing else.
+> The Ubuntu transitional name `ttf-mscorefonts-installer` is intentionally not used as it would conflict with Ubuntu's own meta-package.
 
 ---
 
-## License
+## Troubleshooting
 
-* Packaging and installer scripts: **GNU GPL v2**
-* Microsoft fonts are **downloaded at install time under Microsoft’s EULA** — see `/usr/share/doc/ttf-mscorefonts-installer/READ_ME!.gz` after installation.
+### `NO_PUBKEY 1111EE89C2D53117`
+
+This means the repository exists but the signing key is not correctly bound.
+
+Fix by re-importing the key:
+
+```bash
+sudo rm -f /etc/apt/keyrings/msttcorefonts-minimal.gpg
+
+curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x1111EE89C2D53117" \
+| sudo gpg --dearmor -o /etc/apt/keyrings/msttcorefonts-minimal.gpg
+
+sudo chmod 644 /etc/apt/keyrings/msttcorefonts-minimal.gpg
+sudo apt update
+```
+
+Also ensure there is **only one** source entry for this PPA:
+
+```bash
+grep -R "msttcorefonts-minimal" /etc/apt/sources.list /etc/apt/sources.list.d/
+```
+
+Remove duplicates like this:
+
+```bash
+sudo rm -f </full/path/to/duplicate_file_name.list>
+```
 
 ---
 
-## Notes
+### `add-apt-repository` fails or installs the Ubuntu version
 
-* This PPA only modifies the **dependencies**; the fonts themselves are unchanged.
-* Safe for Linux Mint and Ubuntu systems.
-* Fully compatible with existing font configurations.
+This is expected on Linux Mint.
+Remove any auto-generated files and follow the manual instructions above.
+
+---
+
+## Licensing
+
+* Packaging scripts and installer logic: **GPL-2.0-or-later**
+* Fonts themselves: **Microsoft license** (downloaded by the installer)
+
+This matches Debian's licensing and packaging policy.
+
+---
+
+## Maintenance policy
+
+* Tracks Debian's `msttcorefonts` package from `unstable`
+* Rebuilds only when Debian updates
+* No Ubuntu-specific patches are added
+
+This PPA is intentionally boring but still uses APT's Super COW Powers.
