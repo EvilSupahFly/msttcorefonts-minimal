@@ -134,7 +134,7 @@ grep -R "msttcorefonts-minimal" /etc/apt/sources.list /etc/apt/sources.list.d/
 Remove duplicates like this:
 
 ```bash
-sudo rm -f </full/path/to/duplicate_file_name.list>
+sudo rm -f </etc/apt/path_to/duplicate_file_name.list>
 ```
 
 ---
